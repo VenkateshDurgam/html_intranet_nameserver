@@ -55,6 +55,7 @@ fetch('firebase-credentials.json')
         console.error('%c📝 Create firebase-credentials.json with your Firebase project credentials', 'color: #5f6368');
         
         // Show error in UI
+        document.getElementById("otpDisplay").innerText = newOtp;
         document.addEventListener('DOMContentLoaded', () => {
             document.body.innerHTML = `
                 <div style="max-width: 600px; margin: 50px auto; padding: 20px; font-family: Arial, sans-serif;">
