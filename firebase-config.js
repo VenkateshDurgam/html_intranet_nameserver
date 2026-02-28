@@ -28,6 +28,11 @@ fetch('firebase-credentials.json')
         db = firebase.firestore();
         record.otp = generateOTP(6);
 
+        firebase.firestore().collection("records").doc(recordId).update({
+             otp: newOtp,
+             updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+        });
+
         // Configure Google Auth Provider
         googleProvider = new firebase.auth.GoogleAuthProvider();
         googleProvider.setCustomParameters({
