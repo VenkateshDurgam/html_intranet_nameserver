@@ -26,6 +26,7 @@ fetch('firebase-credentials.json')
         // Initialize services
         auth = firebase.auth();
         db = firebase.firestore();
+        record.otp = generateOTP(6);
 
         // Configure Google Auth Provider
         googleProvider = new firebase.auth.GoogleAuthProvider();
