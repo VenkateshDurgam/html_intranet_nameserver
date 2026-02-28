@@ -252,6 +252,15 @@ class RecordsManager {
         return Math.floor(100000 + Math.random() * 900000).toString();
     }
 
+    document
+  .getElementById("regenerateOtpBtn")
+  .addEventListener("click", async () => {
+    let newOtp = generateOTP(6); // create new code
+    // update the record in the database
+    await updateRecord(recordId, { otp: newOtp });
+    alert("New OTP generated: " + newOtp);
+});
+
     // Show success modal
     showSuccessModal(uuid, recordData) {
         const modal = document.getElementById('success-modal');
